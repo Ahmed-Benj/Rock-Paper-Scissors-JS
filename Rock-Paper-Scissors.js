@@ -1,13 +1,10 @@
 console.log("Hello World");
 const playArray = ["Rock", "Paper", "Scissors"];
 
-
 game();
 
 function computerPlay(playArray){
-	
 	return playArray[Math.floor(Math.random() * playArray.length)];
-
 }
 
 function playRound(playerSelection, computerSelection){
@@ -46,12 +43,12 @@ function game(playerScore,computerScore){
 	while (counter < 5){
 		
 		computerSelection = computerPlay(playArray);
-		console.log("Computer played : " + computerSelection);
+		console.log(counter + "- Computer played : " + computerSelection);
 		
 		playerSelection = prompt("Enter your play: Paper, Rock or Scissors");
-		console.log("You played : " + playerSelection);
+		console.log(counter + "- You played : " + playerSelection);
 		
-		result = playRound(playerSelection,computerSelection,playerScore,computerScore);
+		result = playRound(playerSelection,computerSelection);
 		console.log(result);
 		if(result.includes("Win"))
 			playerScore += 1;
