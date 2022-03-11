@@ -40,7 +40,7 @@ function game(playerScore,computerScore){
 	let result = "";
 	let computerSelection,playerSelection;
 	
-	while (counter < 5){
+	while (counter < 1){
 		
 		computerSelection = computerPlay(playArray);
 		console.log(counter + "- Computer played : " + computerSelection);
