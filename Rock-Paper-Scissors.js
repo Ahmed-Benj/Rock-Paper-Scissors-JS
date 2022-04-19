@@ -1,7 +1,7 @@
 console.log("Hello World");
 const playArray = ["Rock", "Paper", "Scissors"];
 
-game();
+//game();
 
 function computerPlay(playArray){
 	return playArray[Math.floor(Math.random() * playArray.length)];
@@ -57,7 +57,19 @@ function game(playerScore,computerScore){
 		
 		counter += 1;
 	}
-	
 	console.log("End of game : PlayerScore " + playerScore + " - " + computerScore + " ComputerScore !");
+}
 
+
+const buttonList = document.querySelectorAll('button');
+buttonList.forEach(function(button){
+	button.addEventListener('click', clickHandler);
+})
+
+function clickHandler(event) {
+	playerSelection = event.currentTarget.innerHTML;
+	computerSelection = computerPlay(playArray);
+	
+	console.log('Button Clicked : ' + playerSelection);
+	console.log(playRound(playerSelection, computerSelection));
 }
