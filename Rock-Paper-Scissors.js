@@ -18,13 +18,13 @@ function playRound(playerSelection, computerSelection){
 	else if ((computerSelection =="rock" && playerSelection =="paper") || 
 			(computerSelection =="paper" && playerSelection =="scissors") ||
 			(computerSelection =="scissors" && playerSelection =="rock")){
-		return ("You Win! " + capitalize(playerSelection) + " beats " + computerSelection);
+		return ("You Win! " + capitalize(playerSelection) + " beats " + capitalize(computerSelection));
 			}
 	
 	else if ((computerSelection == "rock" && playerSelection =="scissors") || 
 			(computerSelection =="paper" && playerSelection =="rock") ||
 			(computerSelection =="scissors" && playerSelection =="paper")){
-		return ("You Lose! " + capitalize(playerSelection) + " loses against " + computerSelection);
+		return ("You Lose! " + capitalize(playerSelection) + " loses against " + capitalize(computerSelection));
 			}
 }
 
@@ -62,6 +62,10 @@ function game(playerScore,computerScore){
 
 
 const buttonList = document.querySelectorAll('button');
+const computerselection = document.getElementsByClassName("computer-selection")[0];
+const playerselection = document.getElementsByClassName("player-selection")[0];
+const result = document.getElementsByClassName("result")[0];
+
 buttonList.forEach(function(button){
 	button.addEventListener('click', clickHandler);
 })
@@ -70,6 +74,7 @@ function clickHandler(event) {
 	playerSelection = event.currentTarget.innerHTML;
 	computerSelection = computerPlay(playArray);
 	
-	console.log('Button Clicked : ' + playerSelection);
-	console.log(playRound(playerSelection, computerSelection));
+	computerselection.innerHTML = "Computer Selection ----------------- : " + computerSelection;
+	playerselection.innerHTML = "Player Selection ----------------- : " + playerSelection;
+	result.innerHTML = "Result ----------------- : " + playRound(playerSelection, computerSelection); 
 }
