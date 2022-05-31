@@ -1,6 +1,11 @@
 console.log("Hello World");
 const playArray = ["Rock", "Paper", "Scissors"];
 
+const buttonList = document.querySelectorAll('button');
+const computerselection = document.getElementsByClassName("computer-selection")[0];
+const playerselection = document.getElementsByClassName("player-selection")[0];
+const result = document.getElementsByClassName("result")[0];
+
 //game();
 
 function computerPlay(playArray){
@@ -33,16 +38,23 @@ function capitalize(str) {
 }
 
 function game(playerScore,computerScore){
+	
 
 	var playerScore = 0; 
 	var computerScore = 0;
-	let counter = 0;
+	
 	let result = "";
 	let computerSelection,playerSelection;
 	
-	while (counter < 1){
-		
-		computerSelection = computerPlay(playArray);
+	
+}
+
+let counter = 0;
+while (counter < 5){
+		buttonList.forEach(function(button){
+			button.addEventListener('click', clickHandler);
+		})
+/* 		computerSelection = computerPlay(playArray);
 		console.log(counter + "- Computer played : " + computerSelection);
 		
 		playerSelection = prompt("Enter your play: Paper, Rock or Scissors");
@@ -53,22 +65,12 @@ function game(playerScore,computerScore){
 		if(result.includes("Win"))
 			playerScore += 1;
 		else if (result.includes("Lose"))
-			computerScore += 1;
-		
+			computerScore += 1; */
+		alert("counter = " + counter);
 		counter += 1;
 	}
-	console.log("End of game : PlayerScore " + playerScore + " - " + computerScore + " ComputerScore !");
-}
+	// console.log("End of game : PlayerScore " + playerScore + " - " + computerScore + " ComputerScore !");
 
-
-const buttonList = document.querySelectorAll('button');
-const computerselection = document.getElementsByClassName("computer-selection")[0];
-const playerselection = document.getElementsByClassName("player-selection")[0];
-const result = document.getElementsByClassName("result")[0];
-
-buttonList.forEach(function(button){
-	button.addEventListener('click', clickHandler);
-})
 
 function clickHandler(event) {
 	playerSelection = event.currentTarget.innerHTML;
